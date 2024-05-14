@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useActiveContext } from "@/context/sectionSelectionContext";
 
 const variants = {
   open: {
@@ -25,25 +26,65 @@ const itemVariants = {
   },
 };
 
-const Links = () => {
-  const items = ["Homepage", "Skills", "Projects", "Contact"];
+const Links = ({ onClick, fromHeader, setCurrent, current }) => {
+  const items = ["Home", "About", "Projects", "Contact"];
+  const { activeSection, setLastClick } = useActiveContext();
 
   return (
-    <motion.div
-      className="text-white text-2xl absolute w-full h-full flex flex-col items-center justify-center gap-5"
-      variants={variants}
-    >
-      {items.map((item) => (
+    <>
+      {fromHeader ? (
+        <div className="flex justify-between w-full px-5 mx-14 my-auto">
+          {items.map((item) => (
+            <div key={item}>
+              <Link
+                href={`/#${item}`}
+                className="relative text-gray-600 hover:text-gray-950 p-2"
+                onClick={() => {
+                  setCurrent(item);
+                  setLastClick(Date.now());
+                }}
+              >
+                {item}
+                {(current === item || activeSection === item) && (
+                  <motion.span
+                    className="bg-gray-300 rounded-xl absolute inset-0 -z-10"
+                    layoutId="current"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  ></motion.span>
+                )}
+              </Link>
+            </div>
+          ))}
+        </div>
+      ) : (
         <motion.div
-          key={item}
-          variants={itemVariants}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
+          className="text-white text-2xl absolute w-full h-full flex flex-col items-center justify-center gap-5"
+          variants={variants}
         >
-          <Link href={`/#${item}`}>{item}</Link>
+          {items.map((item) => (
+            <motion.div
+              key={item}
+              variants={itemVariants}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                onClick();
+                setCurrent(item);
+              }}
+            >
+              <Link
+                href={`/#${item}`}
+                className={`${
+                  current === item ? "animate-pulse" : "text-white"
+                }`}
+              >
+                {item}
+              </Link>
+            </motion.div>
+          ))}
         </motion.div>
-      ))}
-    </motion.div>
+      )}
+    </>
   );
 };
 

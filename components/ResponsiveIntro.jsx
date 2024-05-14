@@ -1,13 +1,16 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import useContentInView from "@/hooks/useContentInView";
 
 const ResponsiveIntro = ({ isMobile }) => {
   const [animateStatus, setAnimateStatus] = useState(false);
-  const [rotate, setRotate] = useState(0);
+  const { ref, inView } = useContentInView("Home");
+
   useEffect(() => {
     let timeoutId;
+
     function animateStuff() {
       timeoutId = setTimeout(() => setAnimateStatus(true), 1000);
     }
@@ -15,6 +18,23 @@ const ResponsiveIntro = ({ isMobile }) => {
 
     return () => clearTimeout(timeoutId);
   }, []);
+
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver((entries) => {
+  //     const entry = entries[0];
+  //     setElemInView(entry.isIntersecting);
+  //     console.log("entry--->", entry);
+  //   });
+  //   observer.observe(refElem.current);
+  // });
+
+  useEffect(() => {
+    console.log("url--->", window.location.hash);
+    if (inView && window.location.hash === "#Home") {
+      window.scrollTo(0, 0);
+      window.location.hash = "";
+    }
+  }, [inView]);
 
   const variants1 = {
     done: {
@@ -57,13 +77,15 @@ const ResponsiveIntro = ({ isMobile }) => {
     },
   };
 
-  console.log("rotate--->", rotate);
-
   return (
     <>
       {isMobile < 640 ? (
         <>
-          <motion.div className="absolute top-[10%] left-[10%] flex flex-col w-[80vw] justify-between h-[400px] p-10">
+          <motion.div
+            className="absolute top-[10%] left-[10%] flex flex-col w-[80vw] justify-between h-[400px] p-10"
+            id="Homepage"
+            ref={ref}
+          >
             <p>HAloooo</p>
             <p>HAloooo</p>
           </motion.div>
@@ -79,7 +101,11 @@ const ResponsiveIntro = ({ isMobile }) => {
         </>
       ) : (
         <>
-          <motion.div className="absolute top-[15%] left-[10%] flex w-[80vw] justify-between h-[400px] p-10">
+          <motion.div
+            className="absolute top-[15%] left-[10%] flex w-[80vw] justify-between h-[400px] p-10"
+            id="Homepage"
+            ref={ref}
+          >
             <p>HAloooo</p>
             <p>HAloooo</p>
           </motion.div>
