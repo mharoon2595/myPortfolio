@@ -5,7 +5,7 @@ import useContentInView from "@/hooks/useContentInView";
 const Contact = () => {
   const { ref } = useContentInView("Contact");
   return (
-    <div className="h-[100vh] w-full bg-blue-400" id="Contact" ref={ref}>
+    <div className="h-[100vh] " id="Contact" ref={ref}>
       Contact
     </div>
   );

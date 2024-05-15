@@ -7,7 +7,7 @@ const About = () => {
   const { ref } = useContentInView("About");
 
   return (
-    <div className="h-[100vh] w-full bg-green-400" id="About" ref={ref}>
+    <div className="h-[100vh]" id="About" ref={ref}>
       About
     </div>
   );
