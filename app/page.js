@@ -10,15 +10,15 @@ export default function Home() {
     <main className="w-full h-[calc(100vh-5rem)]">
       {/* <div className="relative"> */}
       <Intro />
-      <Stars title="About" />
+      <Stars title="About" index={1} />
       {/* <ParallaxText baseVelocity={-5}>Skills</ParallaxText>
       <ParallaxText baseVelocity={-5}>Skills</ParallaxText>
       <ParallaxText baseVelocity={-5}>Skills</ParallaxText>
       <ParallaxText baseVelocity={-5}>Skills</ParallaxText> */}
       <About />
-      <Stars title="Projects" />
+      <Stars title="Projects" index={2} />
       <Projects />
-      <Stars title="Contact" />
+      <Stars title="Contact" index={3} />
       <Contact />
       {/* </div> */}
     </main>
