@@ -6,15 +6,12 @@ import { motion, useAnimation } from "framer-motion";
 
 const About = () => {
   const { ref, inView } = useContentInView("About");
-  const mainControls=useAnimation();
-  const 
+  const mainControls = useAnimation();
 
-  useEffect(()=>{
-     if(inView){
-      mainCo
-     }
-  }, [inView])
-  
+  useEffect(() => {
+    if (inView) {
+    }
+  }, [inView]);
 
   return (
     <div
