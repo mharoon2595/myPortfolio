@@ -255,7 +255,7 @@ const ResponsiveIntro = ({ isMobile }) => {
       ) : (
         <>
           <div
-            className="absolute top-[15%] left-[10%] flex flex-row-reverse w-[80vw] justify-between items-center h-[400px] p-10"
+            className="absolute top-[15%] left-[10%] flex flex-row-reverse w-[80vw] justify-between items-center h-[400px] p-12 my-4"
             id="Homepage"
             ref={ref}
           >
