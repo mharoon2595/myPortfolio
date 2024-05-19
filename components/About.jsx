@@ -2,37 +2,19 @@
 import { useActiveContext } from "@/context/sectionSelectionContext";
 import useContentInView from "@/hooks/useContentInView";
 import React, { useEffect } from "react";
-import { motion } from "framer-motion";
+import { easeIn, motion, useAnimation } from "framer-motion";
 
 const About = () => {
-  const { ref } = useContentInView("About");
+  const { ref, inView } = useContentInView("About");
+  const startAnimation = useAnimation();
+  const sildeControls = useAnimation();
 
-  const boxVariants = {
-    out: {
-      y: 600,
-    },
-    in: {
-      y: 0,
-      transition: {
-        duration: 0.6,
-        // The first child will appear AFTER the parrent has appeared on the screen
-        delayChildren: 1.2,
-        // The next sibling will appear 0.5s after the previous one
-        staggerChildren: 0.5,
-      },
-    },
-  };
-
-  const iconVariants = {
-    out: {
-      x: -600,
-      opacity: 0,
-    },
-    in: {
-      x: 600,
-      opacity: 1,
-    },
-  };
+  useEffect(() => {
+    if (inView) {
+      startAnimation.start("visible");
+      sildeControls.start("visible");
+    }
+  }, [inView]);
 
   return (
     <div
@@ -40,22 +22,78 @@ const About = () => {
       id="About"
       ref={ref}
     >
-      <motion.div variants={boxVariants} initial="out" animate="in">
-        <motion.span
-          role="img"
-          aria-labelledby="magic wand"
-          variants={iconVariants}
-        >
-          🚀
-        </motion.span>
-        <motion.span
-          role="img"
-          aria-labelledby="sparkles"
-          variants={iconVariants}
-        >
-          ✨
-        </motion.span>
-      </motion.div>
+      <div className="flex h-full justify-between items-center align-middle px-[300px]">
+        <div className="flex flex-col gap-3 max-w-[400px]">
+          <motion.div
+            className="relative w-fit text-xl overflow-hidden"
+            variants={{
+              hidden: { opacity: 0, x: -100 },
+              visible: { opacity: 1, x: 0 },
+            }}
+            transition={{
+              duration: 0.5,
+            }}
+            initial="hidden"
+            animate={startAnimation}
+          >
+            <motion.div
+              variants={{
+                hidden: { left: 0 },
+                visible: { left: "100%" },
+              }}
+              initial="hidden"
+              animate={sildeControls}
+              transition={{ duaration: 0.5, ease: "easeIn", delay: 0.5 }}
+              style={{
+                position: "absolute",
+                top: 4,
+                bottom: 4,
+                left: 0,
+                right: 0,
+                background: "black",
+              }}
+            ></motion.div>
+            Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla
+            Bla Bla Bla Bla Bla Bla Bla
+          </motion.div>
+          <motion.div
+            className="relative w-fit text-xl overflow-hidden"
+            variants={{
+              hidden: { opacity: 0, x: -100 },
+              visible: { opacity: 1, x: 0 },
+            }}
+            transition={{
+              duration: 0.5,
+            }}
+            initial="hidden"
+            animate={startAnimation}
+          >
+            <motion.div
+              variants={{
+                hidden: { left: 0 },
+                visible: { left: "100%" },
+              }}
+              initial="hidden"
+              animate={sildeControls}
+              transition={{ duaration: 0.5, ease: "easeIn", delay: 0.5 }}
+              style={{
+                position: "absolute",
+                top: 4,
+                bottom: 4,
+                left: 0,
+                right: 0,
+                background: "black",
+              }}
+            ></motion.div>
+            Bla Bla Bla Bla Bla
+          </motion.div>
+        </div>
+
+        <div className="max-w-[400px] text-xl">
+          Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla
+          Bla Bla Bla Bla Bla Bla Bla
+        </div>
+      </div>
     </div>
   );
 };

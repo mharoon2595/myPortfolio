@@ -50,7 +50,7 @@ const ResponsiveIntro = ({ isMobile }) => {
 
     const id5 = setTimeout(() => {
       setIntroAnimation5(true);
-    }, 6800);
+    }, 7000);
 
     return () => {
       clearTimeout(id1);
@@ -99,7 +99,7 @@ const ResponsiveIntro = ({ isMobile }) => {
   const variants1 = {
     done: {
       rotate: [0, 90, 90],
-      width: ["inherit", "inherit", "600px"],
+      width: ["inherit", "inherit", "550px"],
       height: ["4px", "4px", "80vw"],
       backgroundColor: ["null", "null", "transparent"],
       borderWidth: ["null", "null", "2px"],
@@ -115,30 +115,6 @@ const ResponsiveIntro = ({ isMobile }) => {
       },
     },
   };
-
-  // const boxVariants = {
-  //   out: {
-  //     opacity: 0,
-  //   },
-  //   in: {
-  //     opacity: 1,
-  //     transition: {
-  //       delay: 4,
-  //       duration: 1,
-  //       delayChildren: 1.2,
-  //       staggerChildren: 1,
-  //     },
-  //   },
-  // };
-
-  // const iconVariants = {
-  //   out: {
-  //     x: -600,
-  //   },
-  //   in: {
-  //     x: 0,
-  //   },
-  // };
 
   const boxVariants = {
     out: {
@@ -168,10 +144,11 @@ const ResponsiveIntro = ({ isMobile }) => {
 
     scrollIcon: {
       opacity: 0,
-      y: -10,
+      y: 10,
       transition: {
         duration: 2,
         repeat: Infinity,
+        ease: "easeInOut",
       },
     },
   };
@@ -207,7 +184,7 @@ const ResponsiveIntro = ({ isMobile }) => {
             ref={ref}
           >
             <motion.div
-              className="flex flex-col gap-5 pt-5"
+              className="flex flex-col gap-2 pt-5"
               initial="out"
               animate="in"
               variants={boxVariants}
@@ -331,7 +308,7 @@ const ResponsiveIntro = ({ isMobile }) => {
                 </motion.span>
               )}
               <motion.div variants={iconVariants}>
-                {introAnimation3 && (
+                {introAnimation4 && (
                   <Typewriter
                     text="I am a full-stack web developer."
                     delay={100}
