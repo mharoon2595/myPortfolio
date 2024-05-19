@@ -1,38 +1,20 @@
 "use client";
 import { useActiveContext } from "@/context/sectionSelectionContext";
 import useContentInView from "@/hooks/useContentInView";
-import React, { useEffect } from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import { motion, useAnimation } from "framer-motion";
 
 const About = () => {
-  const { ref } = useContentInView("About");
+  const { ref, inView } = useContentInView("About");
+  const mainControls=useAnimation();
+  const 
 
-  const boxVariants = {
-    out: {
-      y: 600,
-    },
-    in: {
-      y: 0,
-      transition: {
-        duration: 0.6,
-        // The first child will appear AFTER the parrent has appeared on the screen
-        delayChildren: 1.2,
-        // The next sibling will appear 0.5s after the previous one
-        staggerChildren: 0.5,
-      },
-    },
-  };
-
-  const iconVariants = {
-    out: {
-      x: -600,
-      opacity: 0,
-    },
-    in: {
-      x: 600,
-      opacity: 1,
-    },
-  };
+  useEffect(()=>{
+     if(inView){
+      mainCo
+     }
+  }, [inView])
+  
 
   return (
     <div
@@ -40,22 +22,16 @@ const About = () => {
       id="About"
       ref={ref}
     >
-      <motion.div variants={boxVariants} initial="out" animate="in">
-        <motion.span
-          role="img"
-          aria-labelledby="magic wand"
-          variants={iconVariants}
-        >
-          🚀
-        </motion.span>
-        <motion.span
-          role="img"
-          aria-labelledby="sparkles"
-          variants={iconVariants}
-        >
-          ✨
-        </motion.span>
-      </motion.div>
+      <div className="flex h-full justify-between items-center align-middle px-[300px]">
+        <div className="max-w-[400px] text-xl">
+          Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla
+          Bla Bla Bla Bla Bla Bla Bla
+        </div>
+        <div className="max-w-[400px] text-xl">
+          Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla
+          Bla Bla Bla Bla Bla Bla Bla
+        </div>
+      </div>
     </div>
   );
 };

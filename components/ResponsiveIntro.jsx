@@ -99,7 +99,7 @@ const ResponsiveIntro = ({ isMobile }) => {
   const variants1 = {
     done: {
       rotate: [0, 90, 90],
-      width: ["inherit", "inherit", "600px"],
+      width: ["inherit", "inherit", "550px"],
       height: ["4px", "4px", "80vw"],
       backgroundColor: ["null", "null", "transparent"],
       borderWidth: ["null", "null", "2px"],
@@ -278,7 +278,7 @@ const ResponsiveIntro = ({ isMobile }) => {
       ) : (
         <>
           <div
-            className="absolute top-[15%] left-[10%] flex flex-row-reverse w-[80vw] justify-between items-center h-[400px] p-10"
+            className="absolute top-[15%] left-[10%] flex flex-row-reverse w-[80vw] justify-between items-center h-[400px] p-12 my-4"
             id="Homepage"
             ref={ref}
           >
