@@ -3,6 +3,7 @@ import { useActiveContext } from "@/context/sectionSelectionContext";
 import useContentInView from "@/hooks/useContentInView";
 import React, { useEffect } from "react";
 import { easeIn, motion, useAnimation } from "framer-motion";
+import Skills from "./Skills";
 
 const About = () => {
   const { ref, inView } = useContentInView("About");
@@ -22,7 +23,7 @@ const About = () => {
       id="About"
       ref={ref}
     >
-      <div className="flex h-full justify-between items-center align-middle px-[300px]">
+      <div className="flex h-full justify-between items-center align-middle px-[200px]">
         <div className="flex flex-col gap-3 max-w-[400px]">
           <motion.div
             className="relative w-fit text-xl overflow-hidden"
@@ -89,9 +90,8 @@ const About = () => {
           </motion.div>
         </div>
 
-        <div className="max-w-[400px] text-xl">
-          Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla
-          Bla Bla Bla Bla Bla Bla Bla
+        <div className="min-w-[40vw] ">
+          <Skills />
         </div>
       </div>
     </div>
