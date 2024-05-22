@@ -142,6 +142,11 @@ const ResponsiveIntro = ({ isMobile }) => {
       opacity: 1,
     },
 
+    wave: {
+      rotate: [0, 20, -10, 20, -10, 0],
+      transition: { repeat: Infinity, repeatType: "loop", duration: 1.5 },
+    },
+
     scrollIcon: {
       opacity: 0,
       y: 10,
@@ -210,9 +215,10 @@ const ResponsiveIntro = ({ isMobile }) => {
               {introAnimation3 && (
                 <motion.span
                   variants={iconVariants}
-                  className="text-3xl lg:text-4xl xl:text-5xl 2xl:text-7xl font-normal"
+                  animate="wave"
+                  className="text-3xl lg:text-4xl xl:text-5xl 2xl:text-7xl font-normal w-fit"
                 >
-                  🤝
+                  👋
                 </motion.span>
               )}
               <motion.div variants={iconVariants}>
@@ -222,6 +228,15 @@ const ResponsiveIntro = ({ isMobile }) => {
                     delay={100}
                     style="text-2xl lg:text-3xl xl:text-3xl 2xl:text-5xl font-normal"
                   />
+                )}
+                {introAnimation5 && (
+                  <motion.div
+                    variants={iconVariants}
+                    animate="scrollIcon"
+                    className="w-16 h-16"
+                  >
+                    <Image src={scrollDark} />
+                  </motion.div>
                 )}
               </motion.div>
             </motion.div>
@@ -302,9 +317,10 @@ const ResponsiveIntro = ({ isMobile }) => {
               {introAnimation3 && (
                 <motion.span
                   variants={iconVariants}
-                  className="text-3xl lg:text-4xl xl:text-5xl 2xl:text-7xl font-normal"
+                  animate="wave"
+                  className="text-3xl lg:text-4xl xl:text-5xl 2xl:text-7xl w-fit font-normal"
                 >
-                  🤝
+                  👋
                 </motion.span>
               )}
               <motion.div variants={iconVariants}>
@@ -326,27 +342,6 @@ const ResponsiveIntro = ({ isMobile }) => {
                 </motion.div>
               )}
             </motion.div>
-            {/* <motion.div
-              variants={boxVariants}
-              initial="out"
-              animate="in"
-              className="flex flex-col gap-5"
-            >
-              <motion.span
-                role="img"
-                aria-labelledby="magic wand"
-                variants={iconVariants}
-              >
-                🚀
-              </motion.span>
-              <motion.span
-                role="img"
-                aria-labelledby="sparkles"
-                variants={iconVariants}
-              >
-                ✨
-              </motion.span>
-            </motion.div> */}
           </div>
           <motion.div
             className="relative flex justify-center items-center h-full"

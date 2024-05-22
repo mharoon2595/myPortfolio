@@ -2,7 +2,7 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Intro from "@/components/Intro";
 import Projects from "@/components/Projects";
-import ParallaxText from "@/components/ScrollVelocity";
+
 import Stars from "@/components/Stars";
 
 export default function Home() {
@@ -11,10 +11,7 @@ export default function Home() {
       {/* <div className="relative"> */}
       <Intro />
       <Stars title="About" index={1} />
-      {/* <ParallaxText baseVelocity={-5}>Skills</ParallaxText>
-      <ParallaxText baseVelocity={-5}>Skills</ParallaxText>
-      <ParallaxText baseVelocity={-5}>Skills</ParallaxText>
-      <ParallaxText baseVelocity={-5}>Skills</ParallaxText> */}
+  
       <About />
       <Stars title="Projects" index={2} />
       <Projects />
