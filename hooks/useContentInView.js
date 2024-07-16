@@ -7,12 +7,15 @@ import { useEffect } from 'react';
 const useContentInView = (sectionName,threshold=0.75) => {
     const{ref,inView }=useInView({threshold});
    
-    const { setActiveSection, lastClick } = useActiveContext();
+    const { setActiveSection, lastClick, isMobile } = useActiveContext();
   
     useEffect(() => {
       console.log("lastClick and sectionName--->",  lastClick,sectionName)
-      if (inView && Date.now()-lastClick>1000) {
+      if (inView && Date.now()-lastClick>1000 && !isMobile) {
         setActiveSection(sectionName);
+      }
+      else if(inView && isMobile){
+        setActiveSection(sectionName)
       }
     }, [inView, sectionName, setActiveSection]);
 

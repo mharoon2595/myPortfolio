@@ -184,7 +184,7 @@ const ResponsiveIntro = ({ isMobile }) => {
       {isMobile < 800 ? (
         <>
           <motion.div
-            className="absolute top-[10%] left-[10%] flex flex-col-reverse w-[80vw] justify-between items-center h-[500px] p-10"
+            className="absolute top-[10%] left-[10%] flex flex-col-reverse w-[80vw] justify-between items-center h-[500px] p-10 mt-10"
             id="Homepage"
             ref={ref}
           >
@@ -222,7 +222,7 @@ const ResponsiveIntro = ({ isMobile }) => {
                 </motion.span>
               )}
               <motion.div variants={iconVariants}>
-                {introAnimation3 && (
+                {introAnimation4 && (
                   <Typewriter
                     text="I am a full-stack web developer."
                     delay={100}
@@ -233,9 +233,9 @@ const ResponsiveIntro = ({ isMobile }) => {
                   <motion.div
                     variants={iconVariants}
                     animate="scrollIcon"
-                    className="w-16 h-16"
+                    className="h-16 flex w-full justify-center  mt-2"
                   >
-                    <Image src={scrollDark} />
+                    <Image src={scrollDark} width={64} />
                   </motion.div>
                 )}
               </motion.div>

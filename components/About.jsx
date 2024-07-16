@@ -24,7 +24,7 @@ const About = () => {
       id="About"
       ref={ref}
     >
-      <div className="flex flex-col gap-5 lg:flex-row h-full justify-between items-center align-middle px-[75px] py-[75px] xl:px-[100px] ">
+      <div className="flex flex-col gap-5 lg:flex-row h-full justify-between items-center align-middle px-[75px] py-[75px] xl:px-[200px] ">
         <div className=" min-w-[300px] md:min-w-[400px] lg:min-w-[500px]  2xl:min-w-[700px] ">
           <Skills />
         </div>

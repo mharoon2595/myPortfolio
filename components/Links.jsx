@@ -75,7 +75,7 @@ const Links = ({ onClick, fromHeader, setCurrent, current }) => {
               <Link
                 href={`/#${item}`}
                 className={`${
-                  current === item ? "animate-pulse" : "text-white"
+                  activeSection === item ? "animate-pulse" : "text-white"
                 }`}
               >
                 {item}

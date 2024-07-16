@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const ContentReveal = ({ content, startAnimation, slideControls }) => {
   return (
     <motion.div
-      className="relative w-fit text-xl font-semibold overflow-hidden"
+      className="relative w-fit  xl:text-2xl font-semibold overflow-hidden"
       variants={{
         hidden: { opacity: 0, x: -100 },
         visible: { opacity: 1, x: 0 },
