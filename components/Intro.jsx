@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
 import ResponsiveIntro from "./ResponsiveIntro";
 import { useActiveContext } from "@/context/sectionSelectionContext";
@@ -8,28 +8,36 @@ const Intro = () => {
   // const widthVal = useWidth();
   // const [screenWidth, setScreenWidth]=useState(widthVal)
   // console.log("screen width--->", matches);
-  const [width, setWidth] = useState(0);
+  const [width, setWidth] = useState(window.innerWidth);
   const { setIsMobile, setSkillsShuffle } = useActiveContext();
-  const handleResize = () => {
-    setWidth(window.innerWidth);
-    if (window.innerWidth < 640) {
-      setIsMobile(true);
-      if (window.innerWidth < 545) {
-        setSkillsShuffle(true);
-      } else if (window.innerWidth >= 545) {
-        setSkillsShuffle(false);
-      }
-    } else if (window.innerWidth >= 640) {
-      setIsMobile(false);
-    }
-  };
-  useEffect(() => {
-    handleResize();
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  const handleResize = useCallback(() => {
+    const newWidth = window.innerWidth;
+    setWidth(newWidth);
+
+    if (newWidth < 640) {
+      setIsMobile(true);
+      setSkillsShuffle(newWidth < 545);
+    } else {
+      setIsMobile(false);
+      setSkillsShuffle(false);
+    }
   }, []);
+
+  useEffect(() => {
+    const debounceHandleResize = () => {
+      clearTimeout(handleResize.debounceTimeout);
+      handleResize.debounceTimeout = setTimeout(handleResize, 100);
+    };
+
+    window.addEventListener("resize", debounceHandleResize);
+    handleResize(); // Call it initially to set the state based on the current window size
+
+    return () => {
+      clearTimeout(handleResize.debounceTimeout);
+      window.removeEventListener("resize", debounceHandleResize);
+    };
+  }, [handleResize]);
 
   return (
     <>

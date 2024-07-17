@@ -21,7 +21,7 @@ const Contact = () => {
             <motion.div
               className="absolute inset-0 flex items-center justify-center w-full"
               initial={{ opacity: 1 }}
-              whileInView={inView && { opacity: 0 }}
+              animate={inView && { opacity: 0 }}
               transition={{ duration: 1, delay: 3 }}
             >
               <svg
@@ -34,7 +34,7 @@ const Contact = () => {
                   strokeWidth={1}
                   fill="none"
                   initial={{ pathLength: 0 }}
-                  whileInView={{ pathLength: 1 }}
+                  animate={inView && { pathLength: 1 }}
                   transition={{ duration: 3 }}
                   d="M28.189,16.504h-1.666c0-5.437-4.422-9.858-9.856-9.858l-0.001-1.664C23.021,4.979,28.189,10.149,28.189,16.504z
            M16.666,7.856L16.665,9.52c3.853,0,6.983,3.133,6.981,6.983l1.666-0.001C25.312,11.735,21.436,7.856,16.666,7.856z M16.333,0
@@ -56,7 +56,7 @@ const Contact = () => {
             <motion.div
               className="absolute inset-0 flex flex-col w-full px-5 justify-center gap-10"
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              animate={inView && { opacity: 1 }}
               transition={{ duration: 1, delay: 4 }}
             >
               <div className="text-3xl text-center font-semibold">
@@ -113,7 +113,7 @@ const Contact = () => {
           <motion.div
             className="stroke-black"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            animate={inView && { opacity: 1 }}
             transition={{ duration: 1 }}
           >
             <svg width="500px" height="500px" viewBox="-1 -1 38 38">
@@ -121,7 +121,7 @@ const Contact = () => {
                 strokeWidth={1}
                 fill="none"
                 initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
+                animate={inView && { pathLength: 1 }}
                 transition={{ duration: 3 }}
                 d="M28.189,16.504h-1.666c0-5.437-4.422-9.858-9.856-9.858l-0.001-1.664C23.021,4.979,28.189,10.149,28.189,16.504z
             M16.666,7.856L16.665,9.52c3.853,0,6.983,3.133,6.981,6.983l1.666-0.001C25.312,11.735,21.436,7.856,16.666,7.856z M16.333,0
