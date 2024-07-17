@@ -1,11 +1,36 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useRef } from "react";
 import useContentInView from "@/hooks/useContentInView";
 import { motion } from "framer-motion";
-import { useActiveContext } from "@/context/sectionSelectionContext";
+import emailjs from "@emailjs/browser";
+import swal from "sweetalert";
 
 const Contact = () => {
   const { ref, inView } = useContentInView("Contact");
+
+  const formRef = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm("service_8ygccq5", "template_x0umamz", formRef.current, {
+        publicKey: "LTWmJD5R0EXyn6OKZ",
+      })
+      .then(
+        (result) => {
+          swal("Alright!", "Your mail has been sent.", "success");
+        },
+        (error) => {
+          swal(
+            "Uh oh!",
+            "Something went wrong, please try again in a bit",
+            "error"
+          );
+        }
+      );
+    e.target.reset();
+  };
 
   return (
     <div
@@ -58,12 +83,30 @@ const Contact = () => {
           <div className="text-3xl text-center font-semibold">
             {`Let's team up!`}
           </div>
-          <form className="flex flex-col gap-7">
-            <input type="text" placeholder="Name" className="p-2 rounded-md" />
-            <input type="text" placeholder="Email" className="p-2 rounded-md" />
+          <form
+            className="flex flex-col gap-7"
+            ref={formRef}
+            onSubmit={sendEmail}
+          >
+            <input
+              type="text"
+              placeholder="Name"
+              className="p-2 rounded-md"
+              name="name"
+              required
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              className="p-2 rounded-md"
+              name="email"
+              required
+            />
             <textarea
               placeholder="Message"
               className="p-2 h-36 max-h-36 rounded-md"
+              name="message"
+              required
             />
             <button type="submit" className="bg-emerald-300 p-2 rounded-md">
               Submit
@@ -77,12 +120,30 @@ const Contact = () => {
           <div className="text-5xl text-center font-semibold">
             {`Let's team up!`}
           </div>
-          <form className="flex flex-col gap-7">
-            <input type="text" placeholder="Name" className="p-2 rounded-md" />
-            <input type="text" placeholder="Email" className="p-2 rounded-md" />
+          <form
+            className="flex flex-col gap-7"
+            ref={formRef}
+            onSubmit={sendEmail}
+          >
+            <input
+              type="text"
+              placeholder="Name"
+              className="p-2 rounded-md"
+              name="name"
+              required
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              className="p-2 rounded-md"
+              name="email"
+              required
+            />
             <textarea
               placeholder="Message"
               className="p-2 h-36 max-h-36 rounded-md "
+              name="message"
+              required
             />
             <button type="submit" className="bg-emerald-300 p-2 rounded-md">
               Submit
