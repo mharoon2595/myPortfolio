@@ -1,12 +1,16 @@
 "use client";
-import React, { useContext } from "react";
+import React, { useEffect, useState } from "react";
 import useContentInView from "@/hooks/useContentInView";
 import { motion } from "framer-motion";
 import { useActiveContext } from "@/context/sectionSelectionContext";
 
 const Contact = () => {
   const { ref, inView } = useContentInView("Contact");
-  const { isMobile } = useActiveContext();
+  const [width, setWidth] = useState();
+
+  useEffect(() => {
+    setWidth(window.innerWidth);
+  }, []);
 
   return (
     <div
@@ -14,9 +18,8 @@ const Contact = () => {
       id="Contact"
       ref={ref}
     >
-      {isMobile ? (
+      {width < 640 ? (
         <>
-          {console.log(inView)}
           <div className=" h-full  w-full ">
             <motion.div
               className="absolute inset-0 flex items-center justify-center w-full"
