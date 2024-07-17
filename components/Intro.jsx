@@ -1,15 +1,18 @@
 "use client";
 import React, { useEffect, useState, useCallback } from "react";
-
+import dynamic from "next/dynamic";
 import ResponsiveIntro from "./ResponsiveIntro";
-import { useActiveContext } from "@/context/sectionSelectionContext";
+const activeContext = dynamic(
+  () => import("@/context/sectionSelectionContext"),
+  { ssr: false }
+);
 
 const Intro = () => {
   // const widthVal = useWidth();
   // const [screenWidth, setScreenWidth]=useState(widthVal)
   // console.log("screen width--->", matches);
   const [width, setWidth] = useState(window.innerWidth);
-  const { setIsMobile, setSkillsShuffle } = useActiveContext();
+  const { setIsMobile, setSkillsShuffle } = activeContext.useActiveContext();
 
   const handleResize = useCallback(() => {
     const newWidth = window.innerWidth;

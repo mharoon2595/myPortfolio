@@ -1,5 +1,5 @@
 "use client";
-import { useActiveContext } from "@/context/sectionSelectionContext";
+
 import useContentInView from "@/hooks/useContentInView";
 import React, { useEffect } from "react";
 import { easeIn, motion, useAnimation } from "framer-motion";

@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useActiveContext } from "@/context/sectionSelectionContext";
+import dynamic from "next/dynamic";
+const activeContext = dynamic(
+  () => import("@/context/sectionSelectionContext"),
+  { ssr: false }
+);
 
 const variants = {
   open: {
