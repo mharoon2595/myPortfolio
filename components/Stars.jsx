@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef } from "react";
 import stars from "@/assets/stars.png";
-import mountains from "@/assets/mountains.png";
+import mountains from "@/assets/Mountains.png";
 import { useScroll, useTransform, motion } from "framer-motion";
 
 const Stars = ({ title, index }) => {
