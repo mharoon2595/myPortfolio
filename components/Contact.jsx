@@ -2,11 +2,7 @@
 import React, { useContext } from "react";
 import useContentInView from "@/hooks/useContentInView";
 import { motion } from "framer-motion";
-import dynamic from "next/dynamic";
-const activeContext = dynamic(
-  () => import("@/context/sectionSelectionContext"),
-  { ssr: false }
-);
+import { useActiveContext } from "@/context/sectionSelectionContext";
 
 const Contact = () => {
   const { ref, inView } = useContentInView("Contact");

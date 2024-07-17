@@ -1,10 +1,6 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
-import dynamic from "next/dynamic";
-const activeContext = dynamic(
-  () => import("@/context/sectionSelectionContext"),
-  { ssr: false }
-);
+import { useActiveContext } from "@/context/sectionSelectionContext";
 
 const variants = {
   open: {
@@ -79,7 +75,7 @@ const Links = ({ onClick, fromHeader, setCurrent, current }) => {
               <Link
                 href={`/#${item}`}
                 className={`${
-                  activeSection === item ? "animate-pulse" : "text-white"
+                  current === item ? "animate-pulse" : "text-white"
                 }`}
               >
                 {item}

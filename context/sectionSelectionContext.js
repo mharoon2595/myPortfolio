@@ -6,8 +6,8 @@ const SectionContext = createContext(null);
 export const SectionContextProvider = ({ children }) => {
   const [activeSection, setActiveSection] = useState("Home");
   const [lastClick, setLastClick] = useState(0);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
-  const [skillsShuffle, setSkillsShuffle] = useState(window.innerWidth < 545);
+  const [isMobile, setIsMobile] = useState(false);
+  const [skillsShuffle, setSkillsShuffle] = useState(false);
 
   return (
     <SectionContext.Provider

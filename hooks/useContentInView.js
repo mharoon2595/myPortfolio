@@ -1,11 +1,7 @@
 "use client";
 import React from "react";
 import { useInView } from "react-intersection-observer";
-import dynamic from "next/dynamic";
-const activeContext = dynamic(
-  () => import("@/context/sectionSelectionContext"),
-  { ssr: false }
-);
+import { useActiveContext } from "@/context/sectionSelectionContext";
 import { useEffect } from "react";
 
 const useContentInView = (sectionName, threshold = 0.75) => {
