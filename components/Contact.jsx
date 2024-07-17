@@ -6,11 +6,6 @@ import { useActiveContext } from "@/context/sectionSelectionContext";
 
 const Contact = () => {
   const { ref, inView } = useContentInView("Contact");
-  const [width, setWidth] = useState();
-
-  useEffect(() => {
-    setWidth(window.innerWidth);
-  }, []);
 
   return (
     <div
@@ -18,28 +13,26 @@ const Contact = () => {
       id="Contact"
       ref={ref}
     >
-      {width < 640 ? (
-        <>
-          <div className=" h-full  w-full ">
-            <motion.div
-              className="absolute inset-0 flex items-center justify-center w-full"
-              initial={{ opacity: 1 }}
-              animate={inView && { opacity: 0 }}
-              transition={{ duration: 1, delay: 3 }}
-            >
-              <svg
-                width="300px"
-                height="300px"
-                viewBox="-1 -1 38 38"
-                className="stroke-black "
-              >
-                <motion.path
-                  strokeWidth={1}
-                  fill="none"
-                  initial={{ pathLength: 0 }}
-                  animate={inView && { pathLength: 1 }}
-                  transition={{ duration: 3 }}
-                  d="M28.189,16.504h-1.666c0-5.437-4.422-9.858-9.856-9.858l-0.001-1.664C23.021,4.979,28.189,10.149,28.189,16.504z
+      <div className="block sm:hidden h-full  w-full ">
+        <motion.div
+          className="absolute inset-0 flex items-center justify-center w-full"
+          initial={{ opacity: 1 }}
+          animate={inView && { opacity: 0 }}
+          transition={{ duration: 1, delay: 3 }}
+        >
+          <svg
+            width="300px"
+            height="300px"
+            viewBox="-1 -1 38 38"
+            className="stroke-black "
+          >
+            <motion.path
+              strokeWidth={1}
+              fill="none"
+              initial={{ pathLength: 0 }}
+              animate={inView && { pathLength: 1 }}
+              transition={{ duration: 3 }}
+              d="M28.189,16.504h-1.666c0-5.437-4.422-9.858-9.856-9.858l-0.001-1.664C23.021,4.979,28.189,10.149,28.189,16.504z
            M16.666,7.856L16.665,9.52c3.853,0,6.983,3.133,6.981,6.983l1.666-0.001C25.312,11.735,21.436,7.856,16.666,7.856z M16.333,0
            C7.326,0,0,7.326,0,16.334c0,9.006,7.326,16.332,16.333,16.332c0.557,0,1.007-0.45,1.007-1.006c0-0.559-0.45-1.01-1.007-1.01
            c-7.896,0-14.318-6.424-14.318-14.316c0-7.896,6.422-14.319,14.318-14.319c7.896,0,14.317,6.424,14.317,14.319
@@ -52,81 +45,64 @@ const Contact = () => {
            c1.041,1.228,2.127,2.416,3.245,3.576l-0.006,0.004c0.031,0.031,0.063,0.06,0.095,0.09c0.03,0.031,0.059,0.062,0.088,0.095
            l0.006-0.006c1.16,1.118,2.535,2.765,4.769,4.255c4.703,3.141,8.312,2.264,10.438,1.098c3.67-2.021,5.312-6.338,5.312-9.719
            C32.666,7.326,25.339,0,16.333,0z"
-                />
-              </svg>
-            </motion.div>
+            />
+          </svg>
+        </motion.div>
 
-            <motion.div
-              className="absolute inset-0 flex flex-col w-full px-5 justify-center gap-10"
-              initial={{ opacity: 0 }}
-              animate={inView && { opacity: 1 }}
-              transition={{ duration: 1, delay: 4 }}
-            >
-              <div className="text-3xl text-center font-semibold">
-                {`Let's team up!`}
-              </div>
-              <form className="flex flex-col gap-7">
-                <input
-                  type="text"
-                  placeholder="Name"
-                  className="p-2 rounded-md"
-                />
-                <input
-                  type="text"
-                  placeholder="Email"
-                  className="p-2 rounded-md"
-                />
-                <textarea
-                  placeholder="Message"
-                  className="p-2 h-36 max-h-36 rounded-md"
-                />
-                <button type="submit" className="bg-emerald-300 p-2 rounded-md">
-                  Submit
-                </button>
-              </form>
-            </motion.div>
+        <motion.div
+          className="absolute inset-0 flex flex-col w-full px-5 justify-center gap-10"
+          initial={{ opacity: 0 }}
+          animate={inView && { opacity: 1 }}
+          transition={{ duration: 1, delay: 4 }}
+        >
+          <div className="text-3xl text-center font-semibold">
+            {`Let's team up!`}
           </div>
-        </>
-      ) : (
-        <div className="flex justify-between w-[70vw] gap-20">
-          <div className="flex flex-col w-[50%] px-5 gap-10">
-            <div className="text-5xl text-center font-semibold">
-              {`Let's team up!`}
-            </div>
-            <form className="flex flex-col gap-7">
-              <input
-                type="text"
-                placeholder="Name"
-                className="p-2 rounded-md"
-              />
-              <input
-                type="text"
-                placeholder="Email"
-                className="p-2 rounded-md"
-              />
-              <textarea
-                placeholder="Message"
-                className="p-2 h-36 max-h-36 rounded-md "
-              />
-              <button type="submit" className="bg-emerald-300 p-2 rounded-md">
-                Submit
-              </button>
-            </form>
+          <form className="flex flex-col gap-7">
+            <input type="text" placeholder="Name" className="p-2 rounded-md" />
+            <input type="text" placeholder="Email" className="p-2 rounded-md" />
+            <textarea
+              placeholder="Message"
+              className="p-2 h-36 max-h-36 rounded-md"
+            />
+            <button type="submit" className="bg-emerald-300 p-2 rounded-md">
+              Submit
+            </button>
+          </form>
+        </motion.div>
+      </div>
+
+      <div className="hidden sm:flex justify-between w-[70vw] gap-20">
+        <div className="flex flex-col w-[50%] px-5 gap-10">
+          <div className="text-5xl text-center font-semibold">
+            {`Let's team up!`}
           </div>
-          <motion.div
-            className="stroke-black"
-            initial={{ opacity: 0 }}
-            animate={inView && { opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
-            <svg width="500px" height="500px" viewBox="-1 -1 38 38">
-              <motion.path
-                strokeWidth={1}
-                fill="none"
-                initial={{ pathLength: 0 }}
-                animate={inView && { pathLength: 1 }}
-                transition={{ duration: 3 }}
-                d="M28.189,16.504h-1.666c0-5.437-4.422-9.858-9.856-9.858l-0.001-1.664C23.021,4.979,28.189,10.149,28.189,16.504z
+          <form className="flex flex-col gap-7">
+            <input type="text" placeholder="Name" className="p-2 rounded-md" />
+            <input type="text" placeholder="Email" className="p-2 rounded-md" />
+            <textarea
+              placeholder="Message"
+              className="p-2 h-36 max-h-36 rounded-md "
+            />
+            <button type="submit" className="bg-emerald-300 p-2 rounded-md">
+              Submit
+            </button>
+          </form>
+        </div>
+        <motion.div
+          className="stroke-black"
+          initial={{ opacity: 0 }}
+          animate={inView && { opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <svg width="500px" height="500px" viewBox="-1 -1 38 38">
+            <motion.path
+              strokeWidth={1}
+              fill="none"
+              initial={{ pathLength: 0 }}
+              animate={inView && { pathLength: 1 }}
+              transition={{ duration: 3 }}
+              d="M28.189,16.504h-1.666c0-5.437-4.422-9.858-9.856-9.858l-0.001-1.664C23.021,4.979,28.189,10.149,28.189,16.504z
             M16.666,7.856L16.665,9.52c3.853,0,6.983,3.133,6.981,6.983l1.666-0.001C25.312,11.735,21.436,7.856,16.666,7.856z M16.333,0
             C7.326,0,0,7.326,0,16.334c0,9.006,7.326,16.332,16.333,16.332c0.557,0,1.007-0.45,1.007-1.006c0-0.559-0.45-1.01-1.007-1.01
             c-7.896,0-14.318-6.424-14.318-14.316c0-7.896,6.422-14.319,14.318-14.319c7.896,0,14.317,6.424,14.317,14.319
@@ -139,11 +115,10 @@ const Contact = () => {
             c1.041,1.228,2.127,2.416,3.245,3.576l-0.006,0.004c0.031,0.031,0.063,0.06,0.095,0.09c0.03,0.031,0.059,0.062,0.088,0.095
             l0.006-0.006c1.16,1.118,2.535,2.765,4.769,4.255c4.703,3.141,8.312,2.264,10.438,1.098c3.67-2.021,5.312-6.338,5.312-9.719
             C32.666,7.326,25.339,0,16.333,0z"
-              />
-            </svg>
-          </motion.div>
-        </div>
-      )}
+            />
+          </svg>
+        </motion.div>
+      </div>
     </div>
   );
 };
