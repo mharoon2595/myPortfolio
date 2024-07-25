@@ -39,8 +39,8 @@ const ProjectCard = ({ title, desc, img, liveLink, codeLink }) => {
         <div className="relative w-full h-1/2">
           <Image src={img} fill className="rounded-t-lg" />
         </div>
-        <div className="h-1/2 p-3 flex flex-col justify-between ">
-          <div className="text-center text-xl  font-bold flex justify-center">
+        <div className="h-1/2 p-3 flex flex-col justify-between">
+          <div className="text-center text-xl  font-bold flex justify-center max-h-1/3">
             <ContentReveal
               content={title}
               startAnimation={startAnimationSm}
@@ -48,7 +48,7 @@ const ProjectCard = ({ title, desc, img, liveLink, codeLink }) => {
               fromProjects
             />
           </div>
-          <div className="my-3 ">
+          <div className="my-3 max-h-1/3 overflow-y-scroll">
             <ContentReveal
               content={desc}
               startAnimation={startAnimationSm}
@@ -56,7 +56,7 @@ const ProjectCard = ({ title, desc, img, liveLink, codeLink }) => {
               fromProjects
             />
           </div>
-          <div className="flex justify-evenly ">
+          <div className="flex justify-evenly max-h-1/3">
             <button className="bg-black p-3 rounded-md text-white ">
               <a href={liveLink} target="_blank" rel="noopener noreferrer">
                 See demo
