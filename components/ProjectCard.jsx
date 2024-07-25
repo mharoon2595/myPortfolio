@@ -28,7 +28,7 @@ const ProjectCard = ({ title, desc, img, liveLink, codeLink }) => {
         <div className="relative w-full h-1/2">
           <Image src={img} fill className="rounded-t-lg" />
         </div>
-        <div className="h-1/2 p-3 ">
+        <div className="h-1/2 p-3 flex flex-col justify-between ">
           <div className="text-center text-xl  font-bold flex justify-center">
             <ContentReveal
               content={title}
@@ -60,7 +60,7 @@ const ProjectCard = ({ title, desc, img, liveLink, codeLink }) => {
         </div>
       </motion.div>
       <motion.div
-        className="h-[60%] w-[70%] hidden md:flex gap-3"
+        className="h-[60%] w-[80%] hidden md:flex gap-3"
         whileInView={() => setInView(true)}
       >
         <div className="relative h-full w-1/2">
