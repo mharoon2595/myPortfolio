@@ -58,7 +58,8 @@ const Stars = ({ title, index }) => {
             x: xPlanets,
             backgroundImage: `url(${planets.src})`,
             backgroundPosition: "center",
-            backgroundSize: "cover",
+            backgroundSize: "contain",
+            backgroundRepeat: `no-repeat`,
           }}
           transition={{
             repeat: "Infinity",
