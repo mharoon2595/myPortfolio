@@ -1,23 +1,34 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import ContentReveal from "./ContentReveal";
-import { motion, useAnimation } from "framer-motion";
+import { motion, useAnimation, useInView } from "framer-motion";
 
 const ProjectCard = ({ title, desc, img, liveLink, codeLink }) => {
   const [inView, setInView] = useState(false);
-  const startAnimation = useAnimation();
-  const slideControls = useAnimation();
+  const startAnimationSm = useAnimation();
+  const slideControlsSm = useAnimation();
+  const startAnimationLg = useAnimation();
+  const slideControlsLg = useAnimation();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { amount: 0.75 });
+
+  console.log(isInView);
 
   useEffect(() => {
     if (inView) {
-      startAnimation.start("visible");
-      slideControls.start("visible");
+      startAnimationSm.start("visible");
+      slideControlsSm.start("visible");
     }
   }, [inView]);
 
-  console.log(inView);
+  useEffect(() => {
+    if (isInView) {
+      startAnimationLg.start("visible");
+      slideControlsLg.start("visible");
+    }
+  }, [isInView]);
 
   return (
     <>
@@ -32,16 +43,16 @@ const ProjectCard = ({ title, desc, img, liveLink, codeLink }) => {
           <div className="text-center text-xl  font-bold flex justify-center">
             <ContentReveal
               content={title}
-              startAnimation={startAnimation}
-              slideControls={slideControls}
+              startAnimation={startAnimationSm}
+              slideControls={slideControlsSm}
               fromProjects
             />
           </div>
           <div className="my-3 ">
             <ContentReveal
               content={desc}
-              startAnimation={startAnimation}
-              slideControls={slideControls}
+              startAnimation={startAnimationSm}
+              slideControls={slideControlsSm}
               fromProjects
             />
           </div>
@@ -59,10 +70,7 @@ const ProjectCard = ({ title, desc, img, liveLink, codeLink }) => {
           </div>
         </div>
       </motion.div>
-      <motion.div
-        className="h-[60%] w-[80%] hidden md:flex gap-3"
-        whileInView={() => setInView(true)}
-      >
+      <motion.div className="h-[60%] w-[80%] hidden md:flex gap-3" ref={ref}>
         <div className="relative h-full w-1/2">
           <Image fill src={img} className="rounded-lg" />
         </div>
@@ -70,16 +78,16 @@ const ProjectCard = ({ title, desc, img, liveLink, codeLink }) => {
           <div className="p-2 text-center text-5xl  text-white font-semibold flex justify-center">
             <ContentReveal
               content={title}
-              startAnimation={startAnimation}
-              slideControls={slideControls}
+              startAnimation={startAnimationLg}
+              slideControls={slideControlsLg}
               fromProjects
             />
           </div>
           <div className="p-6 text-left text-2xl text-white ">
             <ContentReveal
               content={desc}
-              startAnimation={startAnimation}
-              slideControls={slideControls}
+              startAnimation={startAnimationLg}
+              slideControls={slideControlsLg}
               fromProjects
             />
           </div>

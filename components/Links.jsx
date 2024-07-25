@@ -45,7 +45,7 @@ const Links = ({ onClick, fromHeader, setCurrent, current }) => {
             <div key={item}>
               <Link
                 href={`/#${item}`}
-                className="relative text-gray-600 hover:text-gray-950 p-2 dark:text-gray-100 dark:hover:text-gray-300"
+                className="relative text-gray-600 hover:text-gray-950 p-2 dark:text-gray-200 dark:hover:text-gray-300"
                 onClick={() => {
                   setCurrent(item);
                   setLastClick(Date.now());
@@ -54,7 +54,7 @@ const Links = ({ onClick, fromHeader, setCurrent, current }) => {
                 {item}
                 {(current === item || activeSection === item) && (
                   <motion.span
-                    className="bg-gray-300 rounded-xl absolute inset-0 -z-10 dark:bg-gray-700"
+                    className="bg-gray-400 rounded-xl absolute inset-0 -z-10 dark:bg-gray-800"
                     layoutId="current"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   ></motion.span>
