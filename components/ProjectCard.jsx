@@ -66,7 +66,7 @@ const ProjectCard = ({ title, desc, img, liveLink, codeLink }) => {
         <div className="relative h-full w-1/2">
           <Image fill src={img} className="rounded-lg" />
         </div>
-        <div className="flex flex-col w-1/2">
+        <div className="flex flex-col h-full justify-between w-1/2">
           <div className="p-2 text-center text-5xl  text-white font-semibold flex justify-center">
             <ContentReveal
               content={title}
