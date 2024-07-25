@@ -1,9 +1,9 @@
 "use client";
 import { motion, useScroll, useTransform, useAnimation } from "framer-motion";
 import Image from "next/image";
-import qKart from "@/assets/Qkart.png";
+import qKart from "@/assets/QKart.png";
 import mernEstate from "@/assets/mernEstate.png";
-import instaPay from "@/assets/Instapay.png";
+import instaPay from "@/assets/InstaPay.png";
 import chatApp from "@/assets/ChatApp.png";
 import { useRef } from "react";
 import useContentInView from "@/hooks/useContentInView";
