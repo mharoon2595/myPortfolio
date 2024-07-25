@@ -22,14 +22,14 @@ const ProjectCard = ({ title, desc, img, liveLink, codeLink }) => {
   return (
     <>
       <motion.div
-        className="h-[80%] sm:h-[75%] w-[70%] sm:w-[60%] rounded-lg md:hidden bg-white"
+        className="h-[80%] sm:h-[75%] w-[70%] sm:w-[60%] rounded-lg md:hidden bg-white dark:bg-slate-700 dark:text-white"
         whileInView={() => setInView(true)}
       >
         <div className="relative w-full h-1/2">
           <Image src={img} fill className="rounded-t-lg" />
         </div>
         <div className="h-1/2 p-3 ">
-          <div className="text-center text-xl dark:text-black font-bold flex justify-center">
+          <div className="text-center text-xl  font-bold flex justify-center">
             <ContentReveal
               content={title}
               startAnimation={startAnimation}
@@ -37,7 +37,7 @@ const ProjectCard = ({ title, desc, img, liveLink, codeLink }) => {
               fromProjects
             />
           </div>
-          <div className="my-3 dark:text-black">
+          <div className="my-3 ">
             <ContentReveal
               content={desc}
               startAnimation={startAnimation}
