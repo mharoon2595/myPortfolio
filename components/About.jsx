@@ -19,26 +19,33 @@ const About = () => {
 
   return (
     <div
-      className="min-h-[100vh] bg-gradient-to-b from-sky-200"
+      className="min-h-[100vh] bg-gradient-to-b from-sky-200 dark:from-[#3c3c59]"
       id="About"
       ref={ref}
     >
-      <div className="flex flex-col gap-5 lg:flex-row h-full justify-between items-center align-middle px-[75px] py-[75px] xl:px-[200px] ">
+      <div className="flex flex-col gap-5 lg:flex-row h-full justify-between xl:justify-evenly items-center align-middle px-[70px] py-[75px] xl:px-[100px] ">
         <div className=" min-w-[300px] md:min-w-[400px] lg:min-w-[500px]  2xl:min-w-[700px] ">
           <Skills />
         </div>
         <div className="flex flex-col gap-3 max-w-[500px] p-2">
           <ContentReveal
-            content="I am an enthusiastic full-stack developer with a passion for building dynamic and responsive web applications. With a keen eye for detail and a relentless commitment to excellence, I thrive on tackling complex challenges and delivering innovative solutions."
+            content="I'm an enthusiastic full-stack developer who enjoys creating dynamic and responsive web applications. I pay great attention to detail and am committed to doing my best work. I like solving complex problems and finding innovative solutions."
             startAnimation={startAnimation}
             slideControls={slideControls}
           />
           <br />
           <ContentReveal
-            content="Constantly evolving in my craft, I am dedicated to continuous learning and upskilling, ensuring I stay at the forefront of the latest industry trends and technologies. Let's create something amazing together!"
+            content="I'm always learning and improving my skills to keep up with the latest industry trends and technologies. I'd love to collaborate and create something great together!"
             startAnimation={startAnimation}
             slideControls={slideControls}
           />
+          <a
+            href="/mharoon_latest.pdf"
+            download
+            className="bg-slate-400 rounded-xl p-3 text-center text-white hover:scale-105 font-semibold my-2"
+          >
+            Download my resume
+          </a>
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ import { useActiveContext } from "@/context/sectionSelectionContext";
 const Skill = ({ name, x, y }) => {
   return (
     <motion.div
-      className="absolute flex items-center font-medium justify-center rounded-full md:font-semibold md:bg-black bg-none text-black md:text-white py-1 px-3 lg:py-3 lg:px-6 shadow-black cursor-pointer"
+      className="absolute flex items-center font-medium justify-center rounded-full md:font-semibold md:bg-black bg-none text-black dark:text-white md:text-white py-1 px-3 lg:py-3 lg:px-6 shadow-black cursor-pointer"
       whileHover={{ scale: 1.05 }}
       initial={{ x: 0, y: 0, opacity: 0 }}
       whileInView={{ x: x, y: y, opacity: 1 }}
@@ -21,7 +21,7 @@ const Skill = ({ name, x, y }) => {
 const Skills = () => {
   const { skillsShuffle } = useActiveContext();
   return (
-    <div className="w-full h-[300px] md:h-[400px] lg:h-[500px]  2xl:h-[700px]  rounded-full relative flex items-center justify-center bg-circularLightDefault lg:bg-circularLightLg xl:bg-circularLightXl">
+    <div className="w-full h-[300px] md:h-[400px] lg:h-[500px]  2xl:h-[700px]  rounded-full relative flex items-center justify-center bg-circularLightDefault lg:bg-circularLightLg xl:bg-circularLightXl dark:bg-circularDarkDefault dark:lg:bg-circularDarkLg dark:xl:bg-circularDarkXl">
       <div className="bg-black rounded-full w-min h-min text-white p-2 absolute z-10">
         Skills
       </div>

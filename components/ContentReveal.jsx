@@ -1,10 +1,20 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useActiveContext } from "@/context/sectionSelectionContext";
 
-const ContentReveal = ({ content, startAnimation, slideControls }) => {
+const ContentReveal = ({
+  content,
+  startAnimation,
+  slideControls,
+  fromProjects,
+}) => {
+  const { isDark } = useActiveContext();
+
   return (
     <motion.div
-      className="relative w-fit  xl:text-2xl font-semibold overflow-hidden"
+      className={`relative w-fit  font-semibold overflow-hidden ${
+        !fromProjects && "xl:text-2xl"
+      }`}
       variants={{
         hidden: { opacity: 0, x: -100 },
         visible: { opacity: 1, x: 0 },
@@ -22,14 +32,14 @@ const ContentReveal = ({ content, startAnimation, slideControls }) => {
         }}
         initial="hidden"
         animate={slideControls}
-        transition={{ duaration: 0.5, ease: "easeIn", delay: 0.5 }}
+        transition={{ duration: 0.5, ease: "easeIn", delay: 0.5 }}
         style={{
           position: "absolute",
           top: 2,
           bottom: 2,
           left: 0,
           right: 0,
-          background: "black",
+          background: "gray",
         }}
       ></motion.div>
       {content}

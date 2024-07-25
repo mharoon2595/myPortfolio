@@ -3,15 +3,14 @@ import React, { useRef } from "react";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import useContentInView from "@/hooks/useContentInView";
-import { ReactTyped } from "react-typed";
 import Lottie from "react-lottie";
-// import Lottie from "@lottielab/lottie-player/react";
 import spacemanDark from "@/assets/spacemanDark.json";
 import spacemanLight from "@/assets/spacemanLight.json";
 import Typewriter from "@/utils/TypeWriter";
 import Image from "next/image";
 import scroll from "@/assets/scroll.png";
 import scrollDark from "@/assets/scrollDark.png";
+import { useActiveContext } from "@/context/sectionSelectionContext";
 
 const ResponsiveIntro = ({ isMobile }) => {
   const [animateStatus, setAnimateStatus] = useState(false);
@@ -20,6 +19,8 @@ const ResponsiveIntro = ({ isMobile }) => {
   const [introAnimation3, setIntroAnimation3] = useState(false);
   const [introAnimation4, setIntroAnimation4] = useState(false);
   const [introAnimation5, setIntroAnimation5] = useState(false);
+
+  const { isDark } = useActiveContext();
   const { ref, inView } = useContentInView("Home");
 
   useEffect(() => {
@@ -79,15 +80,6 @@ const ResponsiveIntro = ({ isMobile }) => {
     },
   };
 
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver((entries) => {
-  //     const entry = entries[0];
-  //     setElemInView(entry.isIntersecting);
-  //     console.log("entry--->", entry);
-  //   });
-  //   observer.observe(refElem.current);
-  // });
-
   useEffect(() => {
     console.log("url--->", window.location.hash);
     if (inView && window.location.hash === "#Home") {
@@ -97,7 +89,16 @@ const ResponsiveIntro = ({ isMobile }) => {
   }, [inView]);
 
   const variants1 = {
-    done: {
+    doneDark: {
+      rotate: [0, 90, 90],
+      width: ["inherit", "inherit", "550px"],
+      height: ["4px", "4px", "80vw"],
+      backgroundColor: ["null", "null", "transparent"],
+      borderWidth: ["null", "null", "2px"],
+      borderColor: ["null", "null", "white"],
+      transition: { type: "ease", duration: 3 },
+    },
+    doneLight: {
       rotate: [0, 90, 90],
       width: ["inherit", "inherit", "550px"],
       height: ["4px", "4px", "80vw"],
@@ -159,8 +160,17 @@ const ResponsiveIntro = ({ isMobile }) => {
   };
 
   const variants2 = {
-    done: {
-      rotate: [0, 90, 180],
+    doneDark: {
+      rotate: [90, 180, 180],
+      width: ["4px", "4px", "90%"],
+      height: ["inherit", "inherit", "85vh"],
+      backgroundColor: ["null", "null", "transparent"],
+      borderWidth: ["0px", "3px", "3px"],
+      borderColor: ["transparent", "white", "white"],
+      transition: { type: "ease", duration: 2 },
+    },
+    doneLight: {
+      rotate: [90, 180, 180],
       width: ["4px", "4px", "90%"],
       height: ["inherit", "inherit", "85vh"],
       backgroundColor: ["null", "null", "transparent"],
@@ -169,7 +179,7 @@ const ResponsiveIntro = ({ isMobile }) => {
       transition: { type: "ease", duration: 2 },
     },
     loading: {
-      rotate: 0,
+      rotate: 90,
       border: 0,
       opacity: 1,
       transition: {
@@ -235,7 +245,11 @@ const ResponsiveIntro = ({ isMobile }) => {
                     animate="scrollIcon"
                     className="h-16 flex w-full justify-center  mt-2"
                   >
-                    <Image src={scrollDark} width={64} />
+                    {isDark ? (
+                      <Image src={scroll} width={64} />
+                    ) : (
+                      <Image src={scrollDark} width={64} />
+                    )}
                   </motion.div>
                 )}
               </motion.div>
@@ -254,15 +268,21 @@ const ResponsiveIntro = ({ isMobile }) => {
               }}
               className="h-[250px] w-[250px]"
             >
-              <Lottie options={spacemanL} />
+              {isDark ? (
+                <Lottie options={spacemanD} />
+              ) : (
+                <Lottie options={spacemanL} />
+              )}
             </motion.div>
           </motion.div>
           <motion.div
             className="flex justify-center items-center h-full"
-            animate={animateStatus ? "done" : "loading"}
+            animate={
+              animateStatus ? (isDark ? "doneDark" : "doneLight") : "loading"
+            }
           >
             <motion.div
-              className={`bg-black w-1/3 h-1 rotate-90 border-0 `}
+              className={`bg-black w-1/3 h-1  border-0`}
               variants={variants2}
             ></motion.div>
           </motion.div>
@@ -288,7 +308,11 @@ const ResponsiveIntro = ({ isMobile }) => {
               }}
               className=" h-[250px] w-[250px] lg:h-[300px] lg:w-[200px] xl:h-[350px] xl:w-[350px] 2xl:h-[450px] 2xl:w-[450px]"
             >
-              <Lottie options={spacemanL} />
+              {isDark ? (
+                <Lottie options={spacemanD} />
+              ) : (
+                <Lottie options={spacemanL} />
+              )}
             </motion.div>
             <motion.div
               className="flex flex-col gap-5 pt-3"
@@ -310,7 +334,7 @@ const ResponsiveIntro = ({ isMobile }) => {
                   <Typewriter
                     text="I am Mohammed Haroon."
                     delay={100}
-                    style="text-3xl lg:text-4xl xl:text-5xl 2xl:text-7xl font-normal"
+                    style="text-2xl lg:text-4xl xl:text-5xl  font-normal"
                   />
                 )}
               </motion.div>
@@ -318,7 +342,7 @@ const ResponsiveIntro = ({ isMobile }) => {
                 <motion.span
                   variants={iconVariants}
                   animate="wave"
-                  className="text-3xl lg:text-4xl xl:text-5xl 2xl:text-7xl w-fit font-normal"
+                  className="text-2xl lg:text-3xl xl:text-4xl 2xl:text-6xl w-fit font-normal"
                 >
                   👋
                 </motion.span>
@@ -328,7 +352,7 @@ const ResponsiveIntro = ({ isMobile }) => {
                   <Typewriter
                     text="I am a full-stack web developer."
                     delay={100}
-                    style="text-2xl lg:text-3xl xl:text-3xl 2xl:text-5xl font-normal"
+                    style="text-2xl lg:text-4xl xl:text-5xl  font-normal"
                   />
                 )}
               </motion.div>
@@ -338,17 +362,19 @@ const ResponsiveIntro = ({ isMobile }) => {
                   animate="scrollIcon"
                   className="w-16 h-16"
                 >
-                  <Image src={scrollDark} />
+                  {isDark ? <Image src={scroll} /> : <Image src={scrollDark} />}
                 </motion.div>
               )}
             </motion.div>
           </div>
           <motion.div
             className="relative flex justify-center items-center h-full"
-            animate={animateStatus ? "done" : "loading"}
+            animate={
+              animateStatus ? (isDark ? "doneDark" : "doneLight") : "loading"
+            }
           >
             <motion.div
-              className={`bg-black w-1/3 h-1`}
+              className={`bg-black w-1/3 h-1 `}
               variants={variants1}
             ></motion.div>
           </motion.div>

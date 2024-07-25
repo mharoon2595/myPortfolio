@@ -10,7 +10,6 @@ const useContentInView = (sectionName, threshold = 0.75) => {
   const { setActiveSection, lastClick, isMobile } = useActiveContext();
 
   useEffect(() => {
-    console.log("lastClick and sectionName--->", lastClick, sectionName);
     if (inView && Date.now() - lastClick > 1000 && !isMobile) {
       setActiveSection(sectionName);
     } else if (inView && isMobile) {

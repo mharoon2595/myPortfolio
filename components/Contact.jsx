@@ -4,9 +4,11 @@ import useContentInView from "@/hooks/useContentInView";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import swal from "sweetalert";
+import { useActiveContext } from "@/context/sectionSelectionContext";
 
 const Contact = () => {
   const { ref, inView } = useContentInView("Contact");
+  const { isDark } = useActiveContext();
 
   const formRef = useRef();
 
@@ -34,7 +36,7 @@ const Contact = () => {
 
   return (
     <div
-      className="h-[100vh] max-w-[100vw] relative flex bg-gradient-to-b justify-center items-center from-sky-200 lg:p-40"
+      className="h-[100vh] max-w-[100vw] relative flex bg-gradient-to-b justify-center items-center from-sky-200 dark:from-[#3c3c59] lg:p-40"
       id="Contact"
       ref={ref}
     >
@@ -49,7 +51,7 @@ const Contact = () => {
             width="300px"
             height="300px"
             viewBox="-1 -1 38 38"
-            className="stroke-black "
+            className={`${isDark ? "stroke-slate-300" : "stroke-black"} `}
           >
             <motion.path
               strokeWidth={1}
@@ -117,7 +119,7 @@ const Contact = () => {
 
       <div className="hidden sm:flex justify-between w-[70vw] gap-20">
         <div className="flex flex-col w-[50%] px-5 gap-10">
-          <div className="text-5xl text-center font-semibold">
+          <div className="sm:text-2xl md:text-3xl lg:text-5xl  text-center font-semibold">
             {`Let's team up!`}
           </div>
           <form
@@ -151,12 +153,12 @@ const Contact = () => {
           </form>
         </div>
         <motion.div
-          className="stroke-black"
+          className={`${isDark ? "stroke-slate-300" : "stroke-black"} `}
           initial={{ opacity: 0 }}
           animate={inView && { opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <svg width="500px" height="500px" viewBox="-1 -1 38 38">
+          <svg width="100%" height="100%" viewBox="-1 -1 38 38">
             <motion.path
               strokeWidth={1}
               fill="none"
