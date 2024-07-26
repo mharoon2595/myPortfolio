@@ -5,15 +5,6 @@ import { motion } from "framer-motion";
 
 const MenuIcon = ({ setOpen }) => {
   return (
-    // <div className="flex justify-between items-center sm:hidden m-3">
-    //   <div>Personal Portfolio</div>
-    //   <div
-    //     className="w-[60px] h-[60px] rounded-full bg-white relative cursor-pointer"
-    //     onClick={() => setOpen((prevState) => !prevState)}
-    //   >
-    //     <Image src={menuIcon} fill className="p-3" />
-    //   </div>
-    // </div>
     <button
       className="fixed top-[28px] left-[38px] w-[50px] h-[50px] rounded-full bg-transparent"
       onClick={() => setOpen((prev) => !prev)}

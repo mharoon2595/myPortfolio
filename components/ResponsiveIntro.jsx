@@ -81,7 +81,6 @@ const ResponsiveIntro = ({ isMobile }) => {
   };
 
   useEffect(() => {
-    console.log("url--->", window.location.hash);
     if (inView && window.location.hash === "#Home") {
       window.scrollTo(0, 0);
       window.location.hash = "";
@@ -124,22 +123,18 @@ const ResponsiveIntro = ({ isMobile }) => {
     in: {
       opacity: 1,
       transition: {
-        // delay: 4,
         duration: 1,
-        // The first child will appear AFTER the parent has appeared on the screen
+
         delayChildren: 4,
-        // The next sibling will appear 0.5s after the previous one
       },
     },
   };
 
   const iconVariants = {
     out: {
-      // x: -600,
       opacity: 0,
     },
     in: {
-      // x: 0,
       opacity: 1,
     },
 

@@ -5,9 +5,6 @@ import ResponsiveIntro from "./ResponsiveIntro";
 import { useActiveContext } from "@/context/sectionSelectionContext";
 
 const Intro = () => {
-  // const widthVal = useWidth();
-  // const [screenWidth, setScreenWidth]=useState(widthVal)
-  // console.log("screen width--->", matches);
   const [width, setWidth] = useState();
   const { setIsMobile, setSkillsShuffle } = useActiveContext();
 
@@ -31,7 +28,7 @@ const Intro = () => {
     };
 
     window.addEventListener("resize", debounceHandleResize);
-    handleResize(); // Call it initially to set the state based on the current window size
+    handleResize();
 
     return () => {
       clearTimeout(handleResize.debounceTimeout);

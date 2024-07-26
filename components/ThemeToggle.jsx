@@ -6,8 +6,6 @@ const ThemeToggle = () => {
   const { isDark, setIsDark } = useActiveContext();
   const [initial, setInitial] = useState(0);
 
-  // console.log(isDark, darkMode);
-
   useEffect(() => {
     if (isDark) {
       document.documentElement.classList.add("dark");

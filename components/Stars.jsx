@@ -19,8 +19,6 @@ const Stars = ({ title, index }) => {
   const xPlanets = useTransform(scrollYProgress, [0, 1], ["0%", "-100%"]);
   const xRocket = useTransform(scrollYProgress, [0, 1], ["-50%", "800%"]);
   const yRocket = useTransform(scrollYProgress, [0, 1], ["50%", "-800%"]);
-  // index % 2 === 0
-  //   ? useTransform(scrollYProgress, [0, 1], ["0%", "-200%"])
 
   return (
     <div className="h-[75vh] sm:h-[150vh] relative overflow-hidden" ref={ref}>
