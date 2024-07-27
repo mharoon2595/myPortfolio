@@ -109,7 +109,7 @@ const Contact = () => {
             {`Let's team up!`}
           </div>
           <form
-            className="flex flex-col gap-7"
+            className="flex flex-col gap-7 dark:text-black"
             ref={formRefSm}
             onSubmit={sendEmailSm}
           >
@@ -146,7 +146,7 @@ const Contact = () => {
             {`Let's team up!`}
           </div>
           <form
-            className="flex flex-col gap-7"
+            className="flex flex-col gap-7 dark:text-black"
             ref={formRefLg}
             onSubmit={sendEmailLg}
           >
