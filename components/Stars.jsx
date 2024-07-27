@@ -70,8 +70,8 @@ const Stars = ({ title, index }) => {
           style={{
             x: xRocket,
             y: yRocket,
-            width: "100px",
-            height: "100px",
+            width: "15%",
+            height: "15%",
             backgroundImage: `url(${rocket.src})`,
             backgroundRepeat: `no-repeat`,
             backgroundSize: "contain",
