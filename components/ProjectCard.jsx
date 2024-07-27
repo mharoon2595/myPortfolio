@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import ContentReveal from "./ContentReveal";
 import { motion, useAnimation, useInView } from "framer-motion";
+import { BsArrowRight } from "react-icons/bs";
 
 const ProjectCard = ({ title, desc, img, liveLink, codeLink }) => {
   const [inView, setInView] = useState(false);
@@ -30,6 +31,18 @@ const ProjectCard = ({ title, desc, img, liveLink, codeLink }) => {
 
   return (
     <>
+      {title === "React-Chat" && (
+        <button className="absolute bottom-5 flex justify-center rounded-lg p-2 md:p-3  text-white bg-gradient-to-r from-[#8282cd] via-[#86A8E7] to-[#87f4ed] hover:from-pink-500 hover:to-yellow-500 dark:bg-gradient-to-r dark:from-[#aa4b6b] dark:via-[#6b6b83] dark:to-[#3b8d99] dark:hover:from-[#659999] dark:hover:to-[#f4791f] animate-bounce">
+          <a
+            href="https://www.crio.do/learn/portfolio/mharoon2595"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2"
+          >
+            {"A few other projects as well"} <BsArrowRight />
+          </a>
+        </button>
+      )}
       <motion.div
         className="h-[80%] sm:h-[75%] w-[70%] sm:w-[60%] rounded-lg md:hidden bg-white dark:bg-slate-700 dark:text-white"
         whileInView={() => setInView(true)}
@@ -46,7 +59,7 @@ const ProjectCard = ({ title, desc, img, liveLink, codeLink }) => {
               fromProjects
             />
           </div>
-          <div className="my-3 max-h-1/3 overflow-y-scroll">
+          <div className="my-3 min-h-[33%] overflow-y-scroll">
             <ContentReveal
               content={desc}
               startAnimation={startAnimationSm}
