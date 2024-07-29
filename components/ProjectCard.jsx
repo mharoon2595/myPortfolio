@@ -32,16 +32,14 @@ const ProjectCard = ({ title, desc, img, liveLink, codeLink }) => {
   return (
     <>
       {title === "React-Chat" && (
-        <button className="absolute bottom-5 flex justify-center rounded-lg p-2 md:p-3  text-white bg-gradient-to-r from-[#8282cd] via-[#86A8E7] to-[#87f4ed] hover:from-pink-500 hover:to-yellow-500 dark:bg-gradient-to-r dark:from-[#aa4b6b] dark:via-[#6b6b83] dark:to-[#3b8d99] dark:hover:from-[#659999] dark:hover:to-[#f4791f] animate-bounce">
-          <a
-            href="https://www.crio.do/learn/portfolio/mharoon2595"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2"
-          >
-            {"A few other projects as well"} <BsArrowRight />
-          </a>
-        </button>
+        <a
+          href="https://www.crio.do/learn/portfolio/mharoon2595"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 absolute bottom-5  justify-center rounded-lg p-2 md:p-3  text-white bg-gradient-to-r from-[#8282cd] via-[#86A8E7] to-[#87f4ed] hover:from-pink-500 hover:to-yellow-500 dark:bg-gradient-to-r dark:from-[#aa4b6b] dark:via-[#6b6b83] dark:to-[#3b8d99] dark:hover:from-[#659999] dark:hover:to-[#f4791f] animate-bounce"
+        >
+          {"A few other projects as well"} <BsArrowRight />
+        </a>
       )}
       <motion.div
         className="h-[80%] sm:h-[75%] w-[70%] sm:w-[60%] rounded-lg md:hidden bg-white dark:bg-slate-700 dark:text-white"
