@@ -31,7 +31,7 @@ const ProjectCard = ({ title, desc, img, liveLink, codeLink }) => {
 
   return (
     <>
-      {title === "React-Chat" && (
+      {title === "QKart" && (
         <a
           href="https://www.crio.do/learn/portfolio/mharoon2595"
           target="_blank"
