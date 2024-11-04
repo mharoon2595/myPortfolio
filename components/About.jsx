@@ -66,7 +66,11 @@ const About = () => {
               className=" h-10 w-10 rounded-full overflow-clip hover:scale-110"
               title="LinkedIn Profile"
             >
-              <a href="https://www.linkedin.com/in/mharoon2595/">
+              <a
+                href="https://www.linkedin.com/in/mharoon2595/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Image src={linkedin} className="object-cover h-full w-full" />
               </a>
             </button>
@@ -74,7 +78,11 @@ const About = () => {
               className=" h-10 w-10 rounded-full overflow-clip hover:scale-110"
               title="GitHub Profile"
             >
-              <a href="https://github.com/mharoon2595/">
+              <a
+                href="https://github.com/mharoon2595/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {isDark ? (
                   <Image
                     src={githubDark}
@@ -89,7 +97,11 @@ const About = () => {
               className=" h-10 w-10 rounded-full overflow-clip hover:scale-110"
               title="Leetcode Profile"
             >
-              <a href="https://leetcode.com/u/mharoon2595/">
+              <a
+                href="https://leetcode.com/u/mharoon2595/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {isDark ? (
                   <Image
                     src={leetcodeDark}
@@ -107,7 +119,11 @@ const About = () => {
               className=" h-10 w-10 rounded-full overflow-clip hover:scale-110"
               title="HackerRank Profile"
             >
-              <a href="https://www.hackerrank.com/profile/mharoon2595">
+              <a
+                href="https://www.hackerrank.com/profile/mharoon2595"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Image
                   src={HackerRank}
                   className="object-cover h-full w-full"
