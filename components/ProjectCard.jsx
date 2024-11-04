@@ -66,16 +66,17 @@ const ProjectCard = ({ title, desc, img, liveLink, codeLink }) => {
             />
           </div>
           <div className="flex justify-evenly max-h-1/3">
-            <button className="bg-black p-3 rounded-md text-white ">
-              <a href={liveLink} target="_blank" rel="noopener noreferrer">
+            <a href={liveLink} target="_blank" rel="noopener noreferrer">
+              <button className="bg-black p-3 rounded-md text-white ">
                 See demo
-              </a>
-            </button>
-            <button className="bg-black p-3 rounded-md text-white">
-              <a href={codeLink} target="_blank" rel="noopener noreferrer">
+              </button>
+            </a>
+
+            <a href={codeLink} target="_blank" rel="noopener noreferrer">
+              <button className="bg-black p-3 rounded-md text-white">
                 View code
-              </a>
-            </button>
+              </button>
+            </a>
           </div>
         </div>
       </motion.div>
