@@ -13,7 +13,8 @@ const ContentReveal = ({
   return (
     <motion.div
       className={`relative w-fit  font-semibold overflow-hidden ${
-        !fromProjects && "xl:text-2xl"
+        !fromProjects &&
+        "xl:text-xl !leading-snug text-pretty xl:!leading-relaxed"
       }`}
       variants={{
         hidden: { opacity: 0, x: -100 },

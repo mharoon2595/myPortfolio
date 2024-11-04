@@ -27,8 +27,8 @@ const Skills = () => {
       </div>
       {skillsShuffle ? (
         <>
-          <Skill name="Prisma" x="20vw" y="10vw" />
-          <Skill name="Postgres" x="12vw" y="18vw" />
+          <Skill name="TS" x="20vw" y="10vw" />
+          <Skill name="SQL" x="12vw" y="18vw" />
           <Skill name="CSS" x="-24vw" y="0vw" />
           <Skill name="MongoDB" x="-18vw" y="-10vw" />
           <Skill name="React" x="14vw" y="-18vw" />
@@ -49,10 +49,10 @@ const Skills = () => {
           <Skill name="React" x="-5vw" y="5vw" />
           <Skill name="NodeJS" x="12vw" y="10vw" />
           <Skill name="TypeScript" x="0vw" y="15vw" />
-          <Skill name="Postgres" x="10vw" y="-10vw" />
+          <Skill name="SQL" x="10vw" y="-10vw" />
           <Skill name="MongoDB" x="-10vw" y="-10vw" />
           <Skill name="NextJS" x="-10vw" y="10vw" />
-          <Skill name="Prisma" x="12vw" y="-0vw" />
+          <Skill name="TS" x="12vw" y="-0vw" />
           <Skill name="HTML" x="6vw" y="-5vw" />
         </>
       )}

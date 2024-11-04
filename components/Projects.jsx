@@ -4,7 +4,7 @@ import Image from "next/image";
 import qKart from "@/assets/QKart.png";
 import mernEstate from "@/assets/mernEstate.png";
 import instaPay from "@/assets/InstaPay.png";
-import chatApp from "@/assets/ChatApp.png";
+import cobraCovers from "@/assets/cobraCovers.png";
 import nextLevel from "@/assets/nextlevel.png";
 import { useRef } from "react";
 import useContentInView from "@/hooks/useContentInView";
@@ -15,20 +15,20 @@ const Projects = () => {
     {
       id: 1,
       color: "from-red-300 to-blue-300 dark:from-[#0F2027] dark:to-[#2C5364]",
+      title: "CobraCovers",
+      desc: "A website where you can build custom iPhone cases, developed with Next.js App Router, TypeScript, PostgreSQL, and Tailwind CSS.",
+      img: cobraCovers,
+      liveLink: "https://cobracovers.vercel.app/",
+      codeLink: "https://github.com/mharoon2595/lit_cases4all",
+    },
+    {
+      id: 2,
+      color: "from-blue-300 to-green-300 dark:from-[#2C5364] dark:to-teal-700",
       title: "MernEstate",
       desc: "A 'MERN' stack, fully responsive real estate application where users can register, login and buy/sell properties. A chat feature between users has also been implemented using web sockets.",
       img: mernEstate,
       liveLink: "https://mernestate.vercel.app/",
       codeLink: "https://github.com/mharoon2595/mernEstate",
-    },
-    {
-      id: 2,
-      color: "from-blue-300 to-green-300 dark:from-[#2C5364] dark:to-teal-700",
-      title: "FoodiesApp",
-      desc: "A fully responsive NextJS application built with the app-router, uses MongoDB as the database.",
-      img: nextLevel,
-      liveLink: "https://foodies-app-weld.vercel.app/",
-      codeLink: "https://github.com/mharoon2595/foodiesApp",
     },
     {
       id: 3,
@@ -43,20 +43,20 @@ const Projects = () => {
       id: 4,
       color:
         "from-violet-300 to-purple-300 dark:from-red-700 dark:to-slate-700",
+      title: "FoodiesApp",
+      desc: "A fully responsive NextJS application built with the app-router, uses MongoDB as the database.",
+      img: nextLevel,
+      liveLink: "https://foodies-app-weld.vercel.app/",
+      codeLink: "https://github.com/mharoon2595/foodiesApp",
+    },
+    {
+      id: 5,
+      color: "from-purple-300 to-red-300 dark:from-slate-700 dark:to-[#2C5364]",
       title: "QKart",
       desc: "QKart is a fully responsive, e-commerce application implemented using the 'MERN' stack.",
       img: qKart,
       liveLink: "https://qkart-mharoon.netlify.app/",
       codeLink: "https://github.com/mharoon2595/QKart_",
-    },
-    {
-      id: 5,
-      color: "from-purple-300 to-red-300 dark:from-slate-700 dark:to-[#2C5364]",
-      title: "React-Chat",
-      desc: "A chat application using web sockets, TypeScript and Postgres.",
-      img: chatApp,
-      liveLink: "https://chat-app-d0r8.onrender.com/",
-      codeLink: "https://github.com/mharoon2595/chat-app",
     },
   ];
   const { ref } = useContentInView("Projects");

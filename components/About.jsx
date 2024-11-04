@@ -3,14 +3,24 @@ import useContentInView from "@/hooks/useContentInView";
 import React, { useEffect, useRef } from "react";
 import { easeIn, motion, useAnimation, useInView } from "framer-motion";
 import Skills from "./Skills";
+import github from "@/assets/github.png";
+import githubDark from "@/assets/githubDark.png";
+import HackerRank from "@/assets/HackerRank.png";
+import leetcode from "@/assets/leetcode.png";
+import leetcodeDark from "@/assets/leetcodeDark.png";
+import linkedin from "@/assets/linkedin.png";
 import ContentReveal from "./ContentReveal";
+import Link from "next/link";
+import Image from "next/image";
+import { useActiveContext } from "@/context/sectionSelectionContext";
 
 const About = () => {
-  const { ref, inView } = useContentInView("About");
+  const { ref } = useContentInView("About");
   const refIntro = useRef(null);
   const isInView = useInView(refIntro, { amount: 0.2 });
   const startAnimation = useAnimation();
   const slideControls = useAnimation();
+  const { isDark } = useActiveContext();
 
   useEffect(() => {
     if (isInView) {
@@ -38,7 +48,7 @@ const About = () => {
             startAnimation={startAnimation}
             slideControls={slideControls}
           />
-          <br />
+
           <ContentReveal
             content="I'm always learning and improving my skills to keep up with the latest industry trends and technologies. I'd love to collaborate and create something great together!"
             startAnimation={startAnimation}
@@ -51,6 +61,60 @@ const About = () => {
           >
             Download my resume
           </a>
+          <div className="flex justify-around py-2 transition-all">
+            <button
+              className=" h-10 w-10 rounded-full overflow-clip hover:scale-110"
+              title="LinkedIn Profile"
+            >
+              <a href="https://www.linkedin.com/in/mharoon2595/">
+                <Image src={linkedin} className="object-cover h-full w-full" />
+              </a>
+            </button>
+            <button
+              className=" h-10 w-10 rounded-full overflow-clip hover:scale-110"
+              title="GitHub Profile"
+            >
+              <a href="https://github.com/mharoon2595/">
+                {isDark ? (
+                  <Image
+                    src={githubDark}
+                    className="object-cover h-full w-full"
+                  />
+                ) : (
+                  <Image src={github} className="object-cover h-full w-full" />
+                )}
+              </a>
+            </button>
+            <button
+              className=" h-10 w-10 rounded-full overflow-clip hover:scale-110"
+              title="Leetcode Profile"
+            >
+              <a href="https://leetcode.com/u/mharoon2595/">
+                {isDark ? (
+                  <Image
+                    src={leetcodeDark}
+                    className="object-cover h-full w-full"
+                  />
+                ) : (
+                  <Image
+                    src={leetcode}
+                    className="object-cover h-full w-full"
+                  />
+                )}
+              </a>
+            </button>
+            <button
+              className=" h-10 w-10 rounded-full overflow-clip hover:scale-110"
+              title="HackerRank Profile"
+            >
+              <a href="https://www.hackerrank.com/profile/mharoon2595">
+                <Image
+                  src={HackerRank}
+                  className="object-cover h-full w-full"
+                />
+              </a>
+            </button>
+          </div>
         </motion.div>
       </div>
     </div>
